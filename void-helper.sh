@@ -24,19 +24,19 @@ if [ "$(id -u)" != 0 ]; then
 	fi
 fi
 
-# (01) Check for updates
+# Check for updates
 
 echo; echo "${bold}*** Checking for updates ***${none}"; echo
 
 $root xbps-install -Su
 
-# (02) Install recommended packages
+# Install recommended packages
 
 echo; echo "${bold}*** Installing recommended packages ***${none}"; echo
 
 $root xbps-install -y smartmontools zstd xz bzip2 lz4 zip unzip man-db file nano
 
-# (03) Install development packages
+# Install development packages
 
 echo; read -p "Do you want to install packages needed for developing software? (y) " devtools
 case $devtools in
@@ -45,7 +45,7 @@ case $devtools in
 	;;
 esac
 
-# (04) Enable non-free repository
+# Enable non-free repository
 
 echo; read -p "Do you want to enable the non-free repository? (y) " add_repo
 case $add_repo in
@@ -63,7 +63,7 @@ case $add_repo in
 	;;
 esac
 
-# (05) Install shell
+# Install shell
 
 echo; echo "${bold}*** Installing a system shell ***${none}"; echo
 
@@ -88,7 +88,7 @@ case $shell in
 	0) continue ;;
 esac
 
-# (06) Configure a graphical environment
+# Configure a graphical environment
 
 echo; read -p "Do you want to configure a graphical environment? (y) " linuxgui
 case $linuxgui in
@@ -129,7 +129,7 @@ case $linuxgui in
 
 	$root cp -r xorg.conf.d /etc/X11/
 
-	# (07) Install a desktop environment
+	# Install a desktop environment
 
 	echo; read -p "Do you want to install a desktop environment? (y) " desktopenv
 	case $desktopenv in
@@ -213,7 +213,7 @@ case $linuxgui in
 		;;
 	esac
 
-	# (08) Install a window manager
+	# Install a window manager
 
 	echo; read -p "Do you want to install a window manager? (y) " wman
 	case $wman in
@@ -329,7 +329,20 @@ case $linuxgui in
 	esac
 
 	#
-	# (09) Install a terminal emulator
+	# Install Flatpak
+	#
+	
+	echo; read -p "Do you want to install Flatpak? (y) " flatpak
+	case $flatpak in
+		y )
+		echo; echo "${bold}*** Installing Flatpak ***${none}"; echo
+
+		$root xbps-install -y flatpak
+		;;
+	esac
+
+	#
+	# Install a terminal emulator
 	#
 
 	echo; echo "${bold}*** Installing a terminal emulator ***${none}"; echo
@@ -378,7 +391,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (10) Install a terminal text editor
+	# Install a terminal text editor
 	#
 
 	echo; echo "${bold}*** Installing a terminal text editor ***${none}"; echo
@@ -421,7 +434,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (11) Install a graphical text editor
+	# Install a graphical text editor
 	#
 
 	echo; echo "${bold}*** Installing a graphical text editor ***${none}"; echo
@@ -524,7 +537,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (12) Install a web browser
+	# Install a web browser
 	#
 
 	echo; echo "${bold}*** Installing a web browser ***${none}"; echo
@@ -579,7 +592,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (13) Install a media player
+	# Install a media player
 	#
 
 	echo; echo "${bold}*** Installing a media player ***${none}"; echo
@@ -622,7 +635,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (14) Install an office suite
+	# Install an office suite
 	#
 
 	echo; echo "${bold}*** Installing an office suite ***${none}"; echo
@@ -653,7 +666,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (15) Install graphic design programs
+	# Install graphic design programs
 	#
 
 	echo; echo "${bold}*** Installing graphic design programs ***${none}"; echo
@@ -696,7 +709,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (16) Install container or virtual machine programs
+	# Install container or virtual machine programs
 	#
 
 	echo; echo "${bold}*** Installing container or virtual machine programs ***${none}"; echo
@@ -745,7 +758,7 @@ case $linuxgui in
 	esac
 
 	#
-	# (17) Install a backup program
+	# Install a backup program
 	#
 
 	echo; echo "${bold}*** Installing a backup program ***${none}"; echo
@@ -778,7 +791,7 @@ case $linuxgui in
 esac
 
 #
-# (19) Configure audio
+# Configure audio
 #
 
 echo; echo "${bold}*** Configuring Audio ***${none}"; echo
@@ -815,7 +828,7 @@ case $audio in
 esac
 
 #
-# (20) Configure network management
+# Configure network management
 #
 
 echo; echo "${bold}*** Configuring network management ***${none}"; echo
@@ -846,7 +859,7 @@ case $netmngmt in
 esac
 
 #
-# (21) Configure Bluetooth
+# Configure Bluetooth
 #
 
 echo; read -p "Do you want to configure Bluetooth? (y) " bluetooth
@@ -869,7 +882,7 @@ case $bluetooth in
 esac
 
 #
-# (22) Configure Printing
+# Configure Printing
 #
 
 echo; read -p "Do you want to install software needed for printing? (y) " printer
@@ -901,7 +914,7 @@ case $printer in
 esac
 
 #
-# (23) Configure Notebook Power Saving
+# Configure Notebook Power Saving
 #
 
 echo; read -p "Do you use Void Linux on a notebook? (y) " notebook
@@ -914,7 +927,7 @@ case $notebook in
 esac
 
 #
-# (24) Configure NFS for sharing files
+# Configure NFS for sharing files
 #
 
 echo; read -p "Do you want to install NFS for file sharing? (y) " nfs
@@ -928,7 +941,7 @@ case $nfs in
 esac
 
 #
-# (25) Enable services
+# Enable services
 #
 
 if [ -d /etc/sv/dbus ]; then
