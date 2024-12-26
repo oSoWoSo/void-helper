@@ -7,13 +7,14 @@ It is recommended to run this script as a regular user, not root, for security r
 ## Content of the script
 
 * Check for updates
-* Install recommended packages
+* Install recommended packages (optional)
 * Install development packages (optional)
 * Enable non-free repository (optional)
 * Install shell (optional)
-* Configure a graphical environment
+* Configure a graphical environment (optional)
 	* Install a desktop environment (optional)
 	* Install a window manager (optional)
+	* Install a display manager (optional)
 	* Install a terminal emulator (optional)
 	* Install a terminal text editor (optional)
 	* Install a graphical text editor (optional)
@@ -29,22 +30,25 @@ It is recommended to run this script as a regular user, not root, for security r
 * Configure Printing (optional)
 * Configure Notebook Power Saving (optional)
 * Configure NFS for sharing files (optional)
-* Enable services
+* Enable and disable services (optional)
 
 ## How to use
 
-* In order to use this script, you need Git to clone this repository. You can
-install Git with the following command:
+* Get script
 
-`xbps-install git`
+`wget "https://codeberg.org/oSoWoSo/void-helper/raw/branch/master/void-helper.sh"`
 
-* After that, clone the repository:
+or
 
-`git clone https://codeberg.org/ravendev/void-helper.git`
+`wget "https://codeberg.org/oSoWoSo/void-helper/raw/branch/master/void-helper.sh"`
 
-* And execute me as a regular user:
+* Execute as a regular user:
 
-`sh void-helper/void.sh`
+`sh void-helper.sh`
+
+or
+
+`./void-helper.sh`
 
 ## License
 

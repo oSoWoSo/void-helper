@@ -1,4 +1,23 @@
 ----------------------------------------------
+Version 2.0.0
+----------------------------------------------
+
+THIS RELEASE IS BIG REWRITE
+
+- Nicer terminal user interface using gum
+- Script now ask all(almost) question prior to installing
+- Nano text editor moved from recommended to terminal text editors section
+- Added Helix editor to terminal text editors
+- Added Connman to network managers section
+- Added AM AppImage package manager
+- Rewriten xkb part
+- Added Enlightenment and Lumina to desktop environments section
+- Added FVWM3 and Hyprland to window managers section
+- Added Display Managers section (LightDM, Emptty, Slim, SDDM and GDM)
+- Added QEMU + Quckemu to virtualization section
+- Disable and enable any services after whole installation
+
+----------------------------------------------
 Version 1.0.0
 ----------------------------------------------
 
