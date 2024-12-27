@@ -311,7 +311,7 @@ case $appimages in
 	yes )
 		show_message "Installing AM"
 		cd /tmp || exit
-		wget -q "https://raw.githubusercontent.com/ivan-hc/AM/main/INSTALL"
+		curl -s "https://raw.githubusercontent.com/ivan-hc/AM/main/INSTALL" -o INSTALL
 		chmod +x INSTALL
 		$root ./INSTALL;;
 esac
@@ -657,10 +657,10 @@ case $virtcnt in
 	"QEMU + Quickemu" )
 		show_message "Installing QEMU + Quickemu"
 		xinstall -y qemu gawk grep glxinfo jq pciutils procps-ng python3 cdrtools usbutils util-linux sed socat spicy swtpm xdg-user-dirs xrandr zsync unzip
-		wget -qO- "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/quickget" > /tmp/quickget
-		wget -qO- "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/quickemu" > /tmp/quickemu
-		wget -qO- "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/chunkcheck" > /tmp/chunkcheck
-		wget -qO- "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/quickreport" > /tmp/quickreport
+		curl -s "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/quickget" > /tmp/quickget
+		curl -s "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/quickemu" > /tmp/quickemu
+		curl -s "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/chunkcheck" > /tmp/chunkcheck
+		curl -s "https://raw.githubusercontent.com/quickemu-project/quickemu/refs/heads/master/quickreport" > /tmp/quickreport
 		$root mkdir -p /opt/quickemu
 		cd /tmp/ || exit
 		$root mv quickget /opt/quickemu/quickget
