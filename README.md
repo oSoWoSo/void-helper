@@ -36,11 +36,14 @@ It is recommended to run this script as a regular user, not root, for security r
 
 * Get script
 
-`wget "https://codeberg.org/oSoWoSo/void-helper/raw/branch/master/void-helper.sh"`
+`curl "https://codeberg.org/oSoWoSo/void-helper/raw/branch/master/void-helper.sh" -o void-helper.sh`
 
 or
 
 `wget "https://codeberg.org/oSoWoSo/void-helper/raw/branch/master/void-helper.sh"`
+* Make it executable
+
+`chmod +x void-helper.sh`
 
 * Execute as a regular user:
 
