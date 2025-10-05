@@ -122,7 +122,7 @@ gui_part() {
 
 	# Install a desktop environment
 	show_prompt_no "Do you want to install a desktop environment?" && \
-	 desktop=$(gum_choose "Which desktop do you want to install?" "Budgie" "Cinnamon" "GNOME" "KDE Plasma" "LXQt" "MATE" "Xfce" "Enlightenment" "Lumina" "None")
+	 desktop=$(gum_choose "Which desktop do you want to install?" "Budgie" "Cinnamon" "GNOME" "KDE Plasma" "LXQt" "MATE" "Xfce" "Enlightenment" "Lumina" "Hyprland" "None")
 
 	# Install a window manager
 	show_prompt "Do you want to install a window manager?" && \
@@ -146,7 +146,6 @@ gui_part() {
 	# Install a media player
 	show_info "Choosing a media player"
 	mediaplayer=$(gum_choose "Which media player do you want install?" "mpv" "VLC" "Parole [Xfce]" "Totem [Gnome]" "Dragon Player [KDE]" "None")
-
 
 	# Install an office suite
 	show_info "Choosing an office suite"
@@ -496,9 +495,10 @@ case $windowmanager in
 
 	"Hyprland [wayland]" )
 		show_message "Installing Hyprland"
-		echo 'repository=https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc' > /tmp/hyprland-repo.conf
-		$root mv /tmp/hyprland-repo.conf /etc/xbps.d/
-		xi hyprland;;
+		echo repository=https://raw.githubusercontent.com/Encoded14/void-extra/repository-x86_64-glibc | $root tee /etc/xbps.d/20-void-extra.conf
+		#echo 'repository=https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc' > /tmp/hyprland-repo.conf
+		#$root mv /tmp/hyprland-repo.conf /etc/xbps.d/
+		xinstall -y hyprland;;
 
 	None) ;;
 esac
