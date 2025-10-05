@@ -498,6 +498,7 @@ case $windowmanager in
 		echo repository=https://raw.githubusercontent.com/Encoded14/void-extra/repository-x86_64-glibc | $root tee /etc/xbps.d/20-void-extra.conf
 		#echo 'repository=https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc' > /tmp/hyprland-repo.conf
 		#$root mv /tmp/hyprland-repo.conf /etc/xbps.d/
+		xinstall -S
 		xinstall -y hyprland;;
 
 	None) ;;
